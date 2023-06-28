@@ -45,11 +45,15 @@ function _turnstileCb() {
     method: 'POST',mode: 'no-cors',
     body:   new FormData(document.getElementById('myform'))
   })
-  .then(response => {
+    .then(response => response.text())
+  .then(data => {
+     
+  
+ 
  
 
-            document.getElementById('ret').innerHTML = response.text()
-              console.log('Form submitted successfully:', response);
+            document.getElementById('ret').innerHTML = data
+              console.log('Form submitted successfully:', data);
  
   })
   .catch(error => {
