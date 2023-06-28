@@ -42,7 +42,7 @@ function _turnstileCb() {
         document.getElementById('mycurl').innerHTML +='"secret=0x4AAAAAAAGpdBPrMgXkShhgZh-Lqk4WAxY&response='+token+'"'
 
   fetch("https:///turnstile-server.minty-ch.workers.dev", {    method: 'POST',    body:   new FormData(document.getElementById('myform'))
-  }).then(response =>=> response.text())
+  }).then(response => response.text())
   .then(data => {
     // 在這裡，data 是實際的資料
     console.log(data);
