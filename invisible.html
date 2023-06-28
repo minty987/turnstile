@@ -48,8 +48,8 @@ function _turnstileCb() {
   .then(response => {
  
 
-            document.getElementById('ret').innerHTML =JSON.stringify(response) 
-    console.log('Form submitted successfully:', response);
+            document.getElementById('ret').innerHTML = response.text()
+              console.log('Form submitted successfully:', response);
  
   })
   .catch(error => {
