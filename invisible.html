@@ -23,10 +23,10 @@ Invisible challenge that does not require interaction.</p>
   <br>
   <p id="ret">    <br>
 {
-  "success": true,
+  "success":  ???,
   "error-codes": [],
-  "challenge_ts": "2022-10-06T00:07:23.274Z",
-  "hostname": "example.com"
+  "challenge_ts": " ",
+  "hostname": " "
 }</p>
 </main>
 <script>
@@ -48,7 +48,7 @@ function _turnstileCb() {
   .then(response => {
  
 
-            document.getElementById('ret').innerHTML +=response.text()
+            document.getElementById('ret').innerHTML =response.text()
     console.log('Form submitted successfully:', response.text());
  
   })
