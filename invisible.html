@@ -44,7 +44,7 @@ function _turnstileCb() {
   fetch("https:///turnstile-server.minty-ch.workers.dev", {    method: 'POST',    body:   new FormData(document.getElementById('myform'))
   }).then(response => response.text())
   .then(data => {
- 
+ document.getElementById('ret').innerHTML =data
     console.log(data);
   }).catch(error => { document.getElementById('ret').innerHTML +=error  });        },    });
 }
