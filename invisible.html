@@ -41,19 +41,8 @@ function _turnstileCb() {
             console.log(`Challenge Success ${token}`);
         document.getElementById('mycurl').innerHTML +='"secret=0x4AAAAAAAGpdBPrMgXkShhgZh-Lqk4WAxY&response='+token+'"'
 
-          fetch("https:///turnstile-server.minty-ch.workers.dev", {
-    method: 'POST',mode: 'no-cors',
-    body:   new FormData(document.getElementById('myform'))
-  })
-    .then(response => {console.log('Form submitted successfully:', response);
-                      
-                      })
- 
-  .catch(error => {
-    document.getElementById('ret').innerHTML +=error
-  });
-        },
-    });
+  fetch("https:///turnstile-server.minty-ch.workers.dev", {    method: 'POST',    body:   new FormData(document.getElementById('myform'))
+  }).then(response => {); }).catch(error => { document.getElementById('ret').innerHTML +=error  });        },    });
 }
 </script>
 </body>
