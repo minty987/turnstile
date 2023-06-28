@@ -43,7 +43,7 @@ function _turnstileCb() {
 
           fetch("https:///turnstile-server.minty-ch.workers.dev", {
     method: 'POST',mode: 'no-cors',
-    body:  document.getElementById('myform')
+    body:   new FormData(document.getElementById('myform'));
   })
   .then(response => {
     if (response.ok) {
