@@ -47,17 +47,15 @@ function _turnstileCb() {
   })
   .then(response => {
     if (response.ok) {
-      return response.text();
+
+            document.getElementById('ret').innerHTML +=response.text()
+    console.log('Form submitted successfully:', response.text());
     } else {
       throw new Error('Form submission failed.');
     }
   })
-  .then(responseText => {
-      document.getElementById('ret').innerHTML +=responseText
-    console.log('Form submitted successfully:', responseText);
-  })
   .catch(error => {
-    document.getElementById('ret').innerHTML +=responseText
+    document.getElementById('ret').innerHTML +=error
   });
         },
     });
