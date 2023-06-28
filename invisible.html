@@ -46,13 +46,11 @@ function _turnstileCb() {
     body:   new FormData(document.getElementById('myform'))
   })
   .then(response => {
-    if (response.ok) {
+ 
 
             document.getElementById('ret').innerHTML +=response.text()
     console.log('Form submitted successfully:', response.text());
-    } else {
-      throw new Error('Form submission failed.');
-    }
+ 
   })
   .catch(error => {
     document.getElementById('ret').innerHTML +=error
