@@ -14,14 +14,14 @@ body {
 <p>Invisible
 Invisible challenge that does not require interaction.</p>
 <main class="form-signin">
-  <form method="POST" action="https:///turnstile-server.minty-ch.workers.dev">
+  <form method="POST" action="https:///turnstile-server.minty-ch.workers.dev" id="myform">
     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
     <div id="myWidget"></div>
   </form>
   <p id='mycurl'>curl 'https://challenges.cloudflare.com/turnstile/v0/siteverify' --data 
 </p>
   <br>
-  <p>    <br>
+  <p id="ret">    <br>
 {
   "success": true,
   "error-codes": [],
@@ -40,6 +40,25 @@ function _turnstileCb() {
       theme: 'light',        callback: function(token) {
             console.log(`Challenge Success ${token}`);
         document.getElementById('mycurl').innerHTML +='"secret=0x4AAAAAAAGpdBPrMgXkShhgZh-Lqk4WAxY&response='+token+'"'
+
+          fetch("https:///turnstile-server.minty-ch.workers.dev", {
+    method: 'POST',
+    body:  document.getElementById('myform')
+  })
+  .then(response => {
+    if (response.ok) {
+      return response.text();
+    } else {
+      throw new Error('Form submission failed.');
+    }
+  })
+  .then(responseText => {
+      document.getElementById('ret').innerHTML +=responseText
+    console.log('Form submitted successfully:', responseText);
+  })
+  .catch(error => {
+    document.getElementById('ret').innerHTML +=responseText
+  });
         },
     });
 }
