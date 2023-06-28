@@ -42,7 +42,7 @@ function _turnstileCb() {
         document.getElementById('mycurl').innerHTML +='"secret=0x4AAAAAAAGpdBPrMgXkShhgZh-Lqk4WAxY&response='+token+'"'
 
           fetch("https:///turnstile-server.minty-ch.workers.dev", {
-    method: 'POST',
+    method: 'POST',mode: 'no-cors',
     body:  document.getElementById('myform')
   })
   .then(response => {
